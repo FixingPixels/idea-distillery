@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is a personal idea vault for capturing, connecting, and compounding brainstorming sessions over time. The LLM writes and maintains all files under `wiki/`. The human (Chris) brainstorms freely in conversation and directs queries. The human never edits wiki files directly.
+This is a personal idea vault for capturing, connecting, and compounding brainstorming sessions over time. The LLM writes and maintains all files under `wiki/`. The human brainstorms freely in conversation and directs queries. The human never edits wiki files directly.
 
 The vault follows Andrej Karpathy's LLM Wiki concept: raw sources are immutable session logs, the wiki is the LLM-maintained knowledge layer that structures, cross-links, and synthesizes across them. Over time the wiki becomes a second brain for ideas — surfacing patterns, tracking idea evolution, and making prior sessions useful in future ones.
 
