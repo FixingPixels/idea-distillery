@@ -87,14 +87,14 @@ tags: [brainstorm, idea-register]
 ## Example Entry
 
 ```markdown
-### Tender — Financial Therapy Platform
+### Community Tool Library
 **Status:** active  
-**Lenses:** audience, market-gap, monetization, timing  
-**Viability:** 3/2/2
+**Lenses:** audience, market-gap, compounding  
+**Viability:** 2/3/2
 
-A platform targeting solopreneurs experiencing financial anxiety — combining structured financial coaching with emotional support. Positioned between a financial advisor (too formal, too expensive) and therapy (not finance-specific). Core value: making money conversations feel safe rather than shameful.
+A neighborhood platform for lending and borrowing rarely-used tools (drills, ladders, pressure washers). Targets cost-conscious homeowners and renters who don't want to buy a tool they'll use twice. Core value: turn idle objects on your street into a shared, searchable inventory.
 
-**Key insight:** The audience is highly motivated and underserved, but the monetization model needs work — solopreneurs are price-sensitive and the ROI of "feeling better about money" is hard to quantify upfront.
+**Key insight:** The hard part isn't the software — it's cold-starting enough local inventory that a search returns something useful. Differentiation lives in solving the first-N-listings problem, not in the app itself.
 
 ---
 ```

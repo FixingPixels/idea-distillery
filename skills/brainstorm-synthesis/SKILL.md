@@ -107,7 +107,7 @@ This vault follows the Karpathy LLM Wiki pattern. Write two files:
 2. **Idea Register** → `wiki/summaries/brainstorm-YYYY-MM-DD.md`
    The fully structured output from Phases 1–4 above. This is what gets cross-linked into the wiki.
 
-After writing both files, run the **Brainstorm Session workflow** defined in `CLAUDE.md`:
+After writing both files, run the **Brainstorm Session workflow** defined in `AGENTS.md` / `CLAUDE.md`:
 - Create or update `wiki/ideas/<idea-slug>.md` for each `active` or `parked` idea
 - Create or update `wiki/themes/<theme-slug>.md` for each theme identified
 - Add cross-links between summary, idea, and theme pages

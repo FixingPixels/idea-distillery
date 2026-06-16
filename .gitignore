@@ -1,0 +1,11 @@
+# OS cruft
+.DS_Store
+
+# Obsidian per-machine state (keep shared config, ignore local workspace/cache)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+
+# Attachments (uncomment if you don't want binaries in git)
+# _attachments/

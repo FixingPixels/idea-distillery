@@ -1,0 +1,53 @@
+# Scheduled maintenance for the idea-distillery vault.
+#
+# Runs the agent headless on a cron schedule, lets it edit the wiki, and pushes
+# the result back to the repo. No always-on machine required.
+#
+# Setup (one time):
+#   1. Push this vault to a GitHub repo.
+#   2. Add a repo secret named ANTHROPIC_API_KEY
+#      (Settings → Secrets and variables → Actions → New repository secret).
+#   3. Copy this file to .github/workflows/weekly-review.yml in the repo root.
+#
+# To add the lint or inbox jobs, copy this file, change the `cron:` line, the
+# job prompt path, and the commit message. See scheduling/README.md.
+
+name: Weekly Review
+
+on:
+  schedule:
+    # Mondays at 09:00 UTC. https://crontab.guru/#0_9_*_*_1
+    - cron: "0 9 * * 1"
+  workflow_dispatch: {}        # also allow manual runs from the Actions tab
+
+# Cron-triggered runs don't get the GitHub App's OIDC write token, so grant
+# write access explicitly and authenticate the agent with the API key instead.
+permissions:
+  contents: write
+
+jobs:
+  weekly-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the vault
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0       # full history so the agent can read wiki/log.md context
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run the Weekly Review job
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          claude -p "$(cat scheduling/jobs/weekly-review.md)" \
+            --permission-mode acceptEdits \
+            --allowedTools "Read,Write,Edit,Glob,Grep,Bash"
+
+      - name: Push any changes the agent committed
+        run: |
+          git config user.name  "idea-distillery-bot"
+          git config user.email "actions@users.noreply.github.com"
+          # The job commits its own work; this just publishes it.
+          git push || echo "Nothing to push."
